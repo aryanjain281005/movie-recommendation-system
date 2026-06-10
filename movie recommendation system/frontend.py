@@ -1,10 +1,19 @@
+import os
 import streamlit as st
 import pandas as pd
 import pickle 
 
+# Get path relative to the script directory to avoid FileNotFoundError
+current_dir = os.path.dirname(os.path.abspath(__file__))
+data_path = os.path.join(current_dir, "data.pkl")
+similarity_path = os.path.join(current_dir, "similarity.pkl")
+
 st.title("Movie recommendation system")
-data = pickle.load(open("data.pkl", "rb"))
-cs = pickle.load(open("similarity.pkl", "rb"))
+data = pickle.load(open(data_path, "rb"))
+# Reset the index to be contiguous so that DataFrame index labels align with similarity matrix positions
+data.reset_index(drop=True, inplace=True)
+
+cs = pickle.load(open(similarity_path, "rb"))
 
 
 def reccomded(movie_name):

@@ -1,2 +1,5 @@
 similarity.pkl
 .DS_Store
+.vscode/
+__pycache__/
+*.zip
