@@ -3,3 +3,6 @@ similarity.pkl
 .vscode/
 __pycache__/
 *.zip
+*.mkv
+*.mp4
+*.avi
